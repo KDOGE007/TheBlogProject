@@ -41,9 +41,9 @@ namespace TheBlogProject.Models
         public IFormFile Image { get; set; }
 
         //Navigation properties
-        //Parent
-        public virtual IdentityUser Author { get; set; }
-        //Child
+        //Parents
+        public virtual BlogUser Author { get; set; }
+        //Children
         public virtual ICollection<Post> Posts { get; set; } = new HashSet<Post>();
 
     }

@@ -51,8 +51,8 @@ namespace TheBlogProject.Models
         //Navigation properties
         //Parents
         public virtual Blog Blog { get; set; }
-        public virtual IdentityUser Author  { get; set; }
-        //Childs
+        public virtual BlogUser Author  { get; set; }
+        //Children
         public virtual ICollection<Tag> Tags { get; set; } = new HashSet<Tag>();
         public virtual ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
     }
