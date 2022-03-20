@@ -37,7 +37,8 @@ namespace TheBlogProject.Models
         [DisplayName("Updated Date")]
         public DateTime? Updated { get; set; }
 
-        public bool IsReady { get; set; }
+
+        //public bool IsReady { get; set; }
 
         public string Slug { get; set; }
 
