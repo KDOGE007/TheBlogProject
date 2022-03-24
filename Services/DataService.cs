@@ -42,6 +42,7 @@ namespace TheBlogProject.Services
             {
                 return;
             }
+
             //Otherwise we want to creat a few Roles
             foreach(var role in Enum.GetNames(typeof(BlogRole)))
             {

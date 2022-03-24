@@ -19,6 +19,11 @@ namespace TheBlogProject.Models
         [StringLength(50, ErrorMessage = "The {0} must be atleast {2} and no more than {1} characters long", MinimumLength = 1)]
         [DisplayName("Last Name")]
         public string LastName { get; set; }
+        
+        //[StringLength(50, ErrorMessage = "The {0} must be atleast {2} and no more than {1} characters long", MinimumLength = 1)]
+        //[DisplayName("Display Name")]
+        //public string DisplayName { get; set; }
+
 
         public byte[] Image { get; set; }
         public string ContentType { get; set; }
