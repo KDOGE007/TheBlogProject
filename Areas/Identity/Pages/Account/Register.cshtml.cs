@@ -56,8 +56,11 @@ namespace TheBlogProject.Areas.Identity.Pages.Account
             [Required]
             [StringLength(50, ErrorMessage = "The {0} must be atleast {2} and no more than {1} characters long", MinimumLength = 1)]
             [DisplayName("Last Name")]
-            public string LastName { get; set; } 
-            
+            public string LastName { get; set; }
+
+            [StringLength(50, ErrorMessage = "The {0} must be atleast {2} and no more than {1} characters long", MinimumLength = 1)]
+            [DisplayName("Display Name")]
+            public string DisplayName { get; set; }
 
             [Required]
             [EmailAddress]
@@ -93,6 +96,7 @@ namespace TheBlogProject.Areas.Identity.Pages.Account
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     UserName = Input.Email, 
+                    DisplayName = Input.DisplayName,
                     Email = Input.Email 
                 };
 

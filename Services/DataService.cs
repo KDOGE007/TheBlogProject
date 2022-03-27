@@ -64,6 +64,7 @@ namespace TheBlogProject.Services
             {
                 Email = "kharnthorn@gmail.com",
                 UserName = "kharnthorn@gmail.com",
+                DisplayName = "KFC001",
                 FirstName = "Kharn",
                 LastName = "Tupmongkol",                
                 PhoneNumber = "987654321",
@@ -80,6 +81,7 @@ namespace TheBlogProject.Services
             {
                 Email = "kcode.001@google.com",
                 UserName = "kcode.001@google.com",
+                DisplayName = "McDonald 001",
                 FirstName = "Ted",
                 LastName = "Baker",
                 PhoneNumber = "0123456789",
