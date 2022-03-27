@@ -18,9 +18,12 @@
 
     <!-- Summernote css -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-  
+
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="~/css/Custom.css" rel="stylesheet" />
 
 </head>
 
@@ -39,7 +42,7 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" asp-controller="Home" asp-action="About">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
-                <partial name="_LoginPartial"/>
+                <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
@@ -108,14 +111,17 @@
     </footer>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    
-    <!-- Bootstrap core JS-->
+
+    <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-     
+
     <!-- Summernote js -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-    <!-- Core theme JS-->
+    <!-- Sweet Alert 2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Core theme JS -->
     <script src="~/js/scripts.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)

@@ -15,6 +15,27 @@
     </div>
 </article>
 
+<hr />
+<article>
+    <div class="row">
+        <div class="col text-center h3 font-weight-bold">
+            Custom Post Tags
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            @foreach (var tag in Model.Tags)
+            {
+                <a class="btn btn-warning btn-sm btn-outline-dark" asp-action="TagIndex" asp-route-tag="@tag.Text.ToLower()">#@tag.Text</a>
+            }
+        </div>
+    </div>
+</article>
 
+<hr />
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 <!--Displaying Comments related to this Post-->
 <!--Displaying the image of the Comment's Author-->
