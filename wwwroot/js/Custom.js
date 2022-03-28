@@ -1,24 +1,24 @@
 ﻿let index = 0;
 
 function AddTag() {
-    //Get a reference to the TagEntry input element
-    const tagEntry = document.getElementById("TagEntry");
+    // Reference to TagEntry input element
+    var tagEntry = document.getElementById("TagEntry");
 
-    //Using the search function to detect an error state
-    let searchResult = Search(tagEntry.value);
+    // Use search function to detect errors
+    let searchResult = search(tagEntry.value);
     if (searchResult != null) {
-        //Trigger my sweet aleart for whatever condition is contained in the searchResult variable
+        // Trigger Sweet Alert for error condition (searchResult variable)
         swalWithDarkButton.fire({
-            html: `<span class='font-weight-bold'>${searchResult.toUpperCase()}</span>`
-        })
-    }
-    else {
-        //Create a new Select Option
-        const newOption = new Option(tagEntry.value, tagEntry.value);
+            html: `<span class='font-weight-bolder'>${searchResult.toUpperCase()}</span>`
+        });
+
+    } else {
+        // Create new select option
+        let newOption = new Option(tagEntry.value, tagEntry.value);
         document.getElementById("TagList").options[index++] = newOption;
     }
 
-    //Clear out the TagEntry control
+    // Clear TagEntry control
     tagEntry.value = "";
     return true;
 }
@@ -67,16 +67,16 @@ function ReplaceTag(tag, index) {
 
 //The Search funtion will detect either an empty or a duplicate Tag
 //and return an error string if an error is detected
-function Search(str) {
+function search(str) {
     if (str == "") {
         return "Empty tags are not permitted";
     }
 
-    const tagsEl = document.getElementById("TagList");
+    let tagsEl = document.getElementById("TagList");
     if (tagsEl) {
         let options = tagsEl.options;
-        for (let i = 0; i < options.length; index++) {
-            if (options[i].value == str) {
+        for (let index = 0; index < options.length; index++) {
+            if (options[index].value == str) {
                 return `The Tag #${str} was detected as a duplicate and not permitted`;
             }
         }
