@@ -40,7 +40,7 @@ namespace TheBlogProject.Controllers
             var pageSize = 5;
 
             var posts = _blogSearchService.Search(searchTerm);    
-            return View(await posts.ToPagedListAsync(pageNumber,pageSize);
+            return View(await posts.ToPagedListAsync(pageNumber,pageSize));
 
         }
 
