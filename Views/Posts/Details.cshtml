@@ -1,4 +1,6 @@
-﻿@model TheBlogProject.Models.Post
+﻿
+@inject TheBlogProject.Services.IImageService imageService
+@model TheBlogProject.Models.Post
 
 @{
     ViewData["Title"] = "Details";
@@ -33,6 +35,55 @@
 </article>
 
 <hr />
+
+<div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="Create" asp-controller="Comments" method="post">
+            @Html.Hidden("PostId", Model.Id)
+
+            <div class="form-group">
+                <label class="h2 font-weight-bold">Add Comment</label>
+                <textarea name="body" class="form-control" rows="10"></textarea>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+            </div>
+
+        </form>
+    }
+    else
+    {
+        <div class="d-grid">
+            <a class="btn btn-sm btn-dark" asp-area="Identity" asp-page="/Account/Login" asp-route-ReturnUrl="~/Posts/Details?slug=@Model.Slug">Login to add comment</a>
+        </div>
+    }
+</div>
+
+<hr />
+
+<div class="d-grid">
+    <span class="btn btn-sm btn-dark">@Model.Comments.Count COMMENTS(S)</span>
+</div>
+
+@foreach (var comment in Model.Comments)
+{
+    <div class="d-flex">
+        <img src="@imageService.DecodeImage(comment.Author.Image, comment.Author.ContentType)"
+             class="me-3 rounded-circle"
+             style="width: 60px; height: 60px;" />
+        <div>
+            <h4 class="fw-bold">
+                @comment.Author.FullName
+                <small class="text-muted"><i>Posted on @comment.Created.ToString("dd MMM yyyy")</i></small>
+            </h4>
+            <p>@comment.Body</p>
+        </div>
+    </div>
+
+}
+
 
 <div>
     <a asp-action="Index">Back to List</a>
