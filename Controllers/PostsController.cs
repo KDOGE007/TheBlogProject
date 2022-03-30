@@ -63,8 +63,7 @@ namespace TheBlogProject.Controllers
 
             //var posts = _context.Posts.Where(p => p.BlogId == id).ToList();
             var posts = await _context.Posts
-                .Where(p => p.BlogId == id)
-                //&& p.ReadyStatus == ReadyStatus.ProductionReady)
+                .Where(p => p.BlogId == id && p.ReadyStatus == ReadyStatus.ProductionReady)
                 .OrderByDescending(p => p.Created)
                 .ToPagedListAsync(pageNumber, pageSize);
 
@@ -167,7 +166,7 @@ namespace TheBlogProject.Controllers
                         AuthorId = authorId,
                         Text = tagText
                     });
-                }           
+                }
 
                 await _context.SaveChangesAsync();
 
@@ -175,6 +174,7 @@ namespace TheBlogProject.Controllers
             }
 
             ViewData["BlogId"] = new SelectList(_context.Blogs, "Id", "Description", post.BlogId);
+
             return View(post);
         }
 
