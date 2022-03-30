@@ -54,14 +54,13 @@ namespace TheBlogProject.Controllers
         }
 
         // GET: Blogs/Create
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {            
             return View();
         }
 
-        // POST: Blogs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // POST: Blogs/Createted
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
