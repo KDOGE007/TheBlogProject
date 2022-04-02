@@ -34,14 +34,9 @@ namespace TheBlogProject.Services
             return await File.ReadAllBytesAsync(file);
         }
 
-        public int size(IFormFile file)
+        public int Size(IFormFile file)
         {
             return Convert.ToInt32(file?.Length);
-        }
-
-        Task<byte[]> IImageService.EncodeImageAsync(string fileName)
-        {
-            throw new NotImplementedException();
         }
     }
 }

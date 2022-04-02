@@ -13,6 +13,6 @@ namespace TheBlogProject.Services
 
         string DecodeImage(byte[] data, string type);
         string ContentType(IFormFile file);
-        int size(IFormFile file);
+        int Size(IFormFile file);
     }
 }
