@@ -12,6 +12,7 @@ using TheBlogProject.Models;
 using TheBlogProject.Services;
 using TheBlogProject.Enums;
 using X.PagedList;
+using TheBlogProject.ViewModels;
 
 namespace TheBlogProject.Controllers
 {
@@ -37,7 +38,7 @@ namespace TheBlogProject.Controllers
             ViewData["SearchTerm"] = searchTerm;
 
             var pageNumber = page ?? 1;
-            var pageSize = 5;
+            var pageSize = 6;
 
             var posts = _blogSearchService.Search(searchTerm);    
             return View(await posts.ToPagedListAsync(pageNumber,pageSize));
@@ -74,25 +75,29 @@ namespace TheBlogProject.Controllers
         // GET: Posts/Details/5
         public async Task<IActionResult> Details(string slug)
         {
-            if (string.IsNullOrEmpty(slug))
-            {
-                return NotFound();
-            }
+            ViewData["Title"] = "Post Details Page";
+            if (string.IsNullOrEmpty(slug)) return NotFound();
 
             var post = await _context.Posts
                 .Include(p => p.Author)
-                .Include(p => p.Blog)
                 .Include(p => p.Tags)
                 .Include(p => p.Comments)
                 .ThenInclude(c => c.Author)
+                .Include(p => p.Comments)
+                .ThenInclude(c => c.Moderator)
                 .FirstOrDefaultAsync(m => m.Slug == slug); 
 
-            if (post == null)
-            {
-                return NotFound();
-            }
+            if (post == null) return NotFound();
 
-            return View(post);
+            var dataVM = new PostDetailViewModel()
+            {
+                Post = post,
+                Tags = _context.Tags
+                       .Select(t => t.Text.ToLower())
+                       .Distinct().ToList()
+            };
+        
+            return View(dataVM);
         }
 
         // GET: Posts/Create

@@ -93,6 +93,10 @@ button.btn-sm, a.btn-sm{
     }
 
 /*Card Styles*/
+.card{
+    margin-top: 5px;
+    border-radius: 15px;
+}
 .card-hr {
     color: #212121;
     background-color: #212121;
@@ -117,6 +121,9 @@ button.btn-sm, a.btn-sm{
     height: 200px;
 }
 
+.card-img-bottom{
+    border-radius: 0 0 15px 15px;
+}
 
 /*Page Styles*/
 .page-item.active .page-link{
