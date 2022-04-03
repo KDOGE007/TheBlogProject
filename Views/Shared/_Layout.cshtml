@@ -52,19 +52,25 @@
     </nav>
 
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+    <header class="masthead" style="background-image: url(@ViewData["HeaderImage"])">
+
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="col-md-10">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
-                        <span class="subheading">A Blog Theme by Start Bootstrap</span>
+
+                        <h1>@ViewData["MainText"]</h1>
+                        <span class="subheading">@ViewData["SubText"]</span>
 
                         <form asp-action="SearchIndex" asp-controller="Posts">
-                            <div class="input-group mt-5">
-                                <input type="text" name="SearchTerm" class="form-control" placeholder="Search Term">
-                                <div class="input-group-append d-grid">
-                                    <button class="input-group-text btn-warning" type="submit"><i class="bi bi-search me-2"></i>Search</button>
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="input-group mt-5">
+                                        <input type="text" name="SearchTerm" class="form-control" placeholder="Search Term">
+                                        <div class="input-group-append d-grid">
+                                            <button class="input-group-text btn-warning" type="submit"><i class="bi bi-search me-2"></i>Search</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>

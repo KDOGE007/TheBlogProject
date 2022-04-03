@@ -68,6 +68,12 @@ namespace TheBlogProject.Controllers
                 .OrderByDescending(p => p.Created)
                 .ToPagedListAsync(pageNumber, pageSize);
 
+            var Blogs = await _context.Blogs.FindAsync(id);
+
+            ViewData["HeaderImage"] = _imageService.DecodeImage(Blogs.ImageData, Blogs.ContentType);
+            ViewData["MainText"] = Blogs.Name;
+            ViewData["SubText"] = Blogs.Description;
+
             return View(posts);
         }
 
@@ -96,6 +102,10 @@ namespace TheBlogProject.Controllers
                        .Select(t => t.Text.ToLower())
                        .Distinct().ToList()
             };
+
+            ViewData["HeaderImage"] = _imageService.DecodeImage(post.ImageData, post.ContentType);
+            ViewData["MainText"] = post.Title;
+            ViewData["SubText"] = post.Abstract;
         
             return View(dataVM);
         }

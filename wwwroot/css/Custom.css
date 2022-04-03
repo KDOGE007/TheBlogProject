@@ -42,11 +42,11 @@ select, input, textarea, option, label, .tooltip-inner{
 }
 
 /*General Padding*/
-header.masthead .page-heading,
+/*header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
     padding: 100px 0;
-}
+}*/
 
 /*Google Map*/
 #map {

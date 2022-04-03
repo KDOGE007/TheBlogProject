@@ -38,15 +38,24 @@ namespace TheBlogProject.Controllers
                 .OrderByDescending(b => b.Created)
                 .ToPagedListAsync(pageNumber, pageSize);
 
+            ViewData["MainText"] = "The Blog Project";
+            ViewData["SubText"] = "Building a custom website using.Net 5 MVC and Bootstrap 5";
+            //Todo: Fix the path
+            ViewData["HeaderImage"] = base.File("/img/home-bg", "image/jpg");
+
             return View(await blogs);
         }
                 
         public IActionResult About()
         {
+            ViewData["MainText"] = "The Blog Project";
+            ViewData["SubText"] = "Building a custom website using.Net 5 MVC and Bootstrap 5";
             return View();
         }
         public IActionResult Contact()
         {
+            ViewData["MainText"] = "The Blog Project";
+            ViewData["SubText"] = "Building a custom website using.Net 5 MVC and Bootstrap 5";
             return View();
         }
 
