@@ -235,6 +235,7 @@ namespace TheBlogProject.Controllers
                     var originalPost = await _context.Posts.Include(p => p.Tags).FirstOrDefaultAsync(p => p.Id == post.Id);
 
                     originalPost.Updated = DateTime.Now;
+                    originalPost.BlogId = post.BlogId;
                     originalPost.Title = post.Title;
                     originalPost.Abstract = post.Abstract;
                     originalPost.Content = post.Content;
