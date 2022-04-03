@@ -4,8 +4,8 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="A MVC blog project" />
+    <meta name="author" content="Kharn Tupmongkol" />
 
     <title>@ViewData["Title"] - The Blog Project</title>
 
@@ -63,12 +63,11 @@
                         <form asp-action="SearchIndex" asp-controller="Posts">
                             <div class="input-group mt-5">
                                 <input type="text" name="SearchTerm" class="form-control" placeholder="Search Term">
-                                <div class="input-group-append">
-                                    <button class="btn btn-warning btn-block btn-sm" type="submit">Search</button>
+                                <div class="input-group-append d-grid">
+                                    <button class="input-group-text btn-warning" type="submit"><i class="bi bi-search me-2"></i>Search</button>
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
